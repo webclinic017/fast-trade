@@ -63,13 +63,13 @@ backtest = {
     "chart_period": "1H",
     "comission": 0.01,
     "datapoints": [
-        {"args": [11], "name": "zlema_1", "transformer": "zlema"},
-        {"args": [88], "name": "zlema_2", "transformer": "zlema"},
+        # {"args": [11], "name": "atr", "transformer": "atr"},
+        {"args": [14], "name": "chop1","transformer":"choppiness"}
     ],
-    "enter": [["zlema_1", ">", "close", 4]],
-    "exit": [["zlema_2", "<", "close", 1]],
+    "enter": [],
+    "exit": [],
     "exit_on_end": False,
-    # "start": "2021-01-01 22:30:00",
+    "start": "2022-03-28 22:30:00",
     # "stop": "2021-03-11 23:30:59",
     # "trailing_stop_loss": 0.05,
     # "max_lot_size": 1000,
@@ -91,20 +91,6 @@ backtest = {
 # }
 if __name__ == "__main__":
     # datafile = "./BTCUSDT.csv"
-    # datafile = "./archive/BTCUSDT_2021.csv"
-    datafile = "/Users/jedmeier/Desktop/BTCUSDT_ALL/BTCUSDT_2020.csv"
-    # datafile = "/Users/jedmeier/Desktop/BTCUSDT_2021_06_12.csv"
-    # datafile = "./archive/BCHUSDT_2021.csv"
-
-    # backtest["start"] = "2021-03-01"
-    # backtest["stop"] = "2021-05-01"
-
-    # backtest["chart_period"] = "1Min"
-    test = run_backtest(backtest, datafile, summary=True)
-    # print(test)
-    df = test["df"]
-
-    perc_missing = calculate_perc_missing(df)
-
-    print("perc_missing: ", perc_missing)
-    # print(json.dumps(test["summary"], indent=2))
+    datafile = "./archive/BTCUSD_2022.csv"
+    test = run_backtest(backtest, datafile, summary=False)
+    print("test.df: ", test['df'])

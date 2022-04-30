@@ -1,5 +1,5 @@
 from finta import TA
-
+from .custom_indicators import choppiness_indicator
 """
 These are all the datapoints the can be used in a backtest as a "transformer".
 Any function can be implimented as an transformer.
@@ -80,4 +80,5 @@ transformers_map = {
     "vfi": TA.VFI,
     "msd": TA.MSD,
     "wto": TA.WTO,
+    "choppiness": choppiness_indicator
 }
