@@ -136,6 +136,9 @@ def update_archive_csv_by_df(archive_csv_filename, new_df):
         To have clean, de-duplicated data store in this file
         based on this dataframe
     """
+    if not os.path.exists(ARCHIVE_PATH):
+        os.makedirs(ARCHIVE_PATH)
+
     archive_csv_path = f"{ARCHIVE_PATH}/{archive_csv_filename}"
 
     # load the csv, if exists
